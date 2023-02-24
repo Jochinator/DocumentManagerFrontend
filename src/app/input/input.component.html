@@ -2,7 +2,7 @@
   <mat-label>{{label}}</mat-label>
   <ng-container *ngIf="type!=='date'; then notDateBlock else dateBlock"></ng-container>
   <ng-template #notDateBlock>
-    <input (ngModelChange)="emitValue()"
+    <input (ngModelChange)="emitValue($event)"
            [(ngModel)]="value"
            [type]="type"
            matInput/>

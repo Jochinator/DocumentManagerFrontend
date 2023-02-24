@@ -49,9 +49,9 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MatCheckboxModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatAutocompleteModule,
     MatChipsModule,
     MatIconModule,
-    MatAutocompleteModule,
     ReactiveFormsModule
   ],
   providers: [

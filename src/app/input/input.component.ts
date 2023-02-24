@@ -8,7 +8,7 @@ type ValueType = string | Date
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent<T> implements OnChanges{
+export class InputComponent<T> {
   @Input()
   type: 'color' | 'date' | 'datetime-local' | 'email' | 'month' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url' | 'week' = 'text';
   @Input()
@@ -18,21 +18,15 @@ export class InputComponent<T> implements OnChanges{
   @Output()
   valueChange = new EventEmitter<T>();
 
-  emitValue(){
-    console.log('emitting: ' + this.value);
-    this.valueChange.emit(this.value);
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    console.log('change: ' + this.value);
+  emitValue($event: any){
+    this.valueChange.emit($event);
   }
 
   updateDate($event: MatDatepickerInputEvent<T, unknown | null>) {
     let newDate = $event.value;
     if (newDate){
       this.value = newDate;
-      this.emitValue();
+      this.emitValue(this.value);
     }
 
   }

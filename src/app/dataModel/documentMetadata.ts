@@ -1,3 +1,9 @@
+export interface DocumentTag {
+  id?: string;
+  value: string;
+  isManualOnly?: boolean;
+}
+
 export interface DocumentMetadata {
   id: string,
   title: string,
@@ -6,5 +12,5 @@ export interface DocumentMetadata {
   filePath: string,
   senderName: string,
   contentType: string,
-  tags: string[]
+  tags: DocumentTag[]
 }
